@@ -4,16 +4,15 @@ import { useState } from 'react';
 
 
 const App = () => {
-  const { searchName, setSearchName } = useState("");
-  const { filterData, setFilterData } = useState([])
+  const [ searchName, setSearchName ] = useState("");
+  const [ filterData, setFilterData ] = useState([])
 
   const handlerFilter = (event) => {
     const searchName = event.target.value;
-    setSearchName(searchName);
-
     const newNameFilter = Data.filter((value) => {
       return (value.first_name.toLowerCase().includes(searchName.toLowerCase()))
     });
+
 
     if (searchName === " ") {
       setFilterData([])
