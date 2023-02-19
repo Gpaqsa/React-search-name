@@ -13,14 +13,12 @@ const App = () => {
       return (value.first_name.toLowerCase().includes(searchName.toLowerCase()))
     });
 
-
     if (searchName === " ") {
       setFilterData([])
     } else {
       setFilterData(newNameFilter);
     };
   }
-
   return (
     <div className="app">
 
