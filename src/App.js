@@ -4,8 +4,8 @@ import { useState } from 'react';
 
 
 const App = () => {
-  const [ searchName, setSearchName ] = useState("");
-  const [ filterData, setFilterData ] = useState([])
+  const [searchName, setSearchName] = useState("");
+  const [filterData, setFilterData] = useState([])
 
   const handlerFilter = (event) => {
     const searchName = event.target.value;
