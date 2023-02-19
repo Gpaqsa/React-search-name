@@ -6,19 +6,28 @@ import { useState } from 'react';
 const App = () => {
   const [searchName, setSearchName] = useState("");
   const [filterData, setFilterData] = useState([])
+  // setSearchName()
 
+  
   const handlerFilter = (event) => {
-    const searchName = event.target.value;
+    const search_name = event.target.value;
+    setSearchName(search_name)
+    console.log(search_name)
     const newNameFilter = Data.filter((value) => {
-      return (value.first_name.toLowerCase().includes(searchName.toLowerCase()))
+      return value.first_name.toLowerCase().includes(search_name.toLowerCase())
     });
 
-    if (searchName === " ") {
+    if (search_name === "") {
       setFilterData([])
     } else {
       setFilterData(newNameFilter);
     };
+
+    setSearchName(search_name)
+
   }
+
+
   return (
     <div className="app">
 
@@ -36,7 +45,7 @@ const App = () => {
           <h1>Name Data</h1>
           <hr />
           <div className='names'>
-            {Data.map((value, key) => {
+            {filterData.map((value, key) => {
               return (<div key={key}>
                 <p >{value.first_name}</p>
               </div>)
